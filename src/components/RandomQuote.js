@@ -30,7 +30,7 @@ export default class RandomeQuote extends Component {
 
     render() {
         return (
-            <div className="randomquote">
+            <div className="randomquote container-fluid h-100 mx-auto my-auto">
                 <QuoteBox quote={this.state.quote_text} author={this.state.quote_author} />
             </div>
         )

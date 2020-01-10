@@ -3,17 +3,18 @@ import React from 'react';
 const QuoteCard = (props) => {
     return (
         <div>
+            <br />
             <h2>
-            <span>Quote No. </span>
+            <span className= "float-left">Quote No. </span>
             {/* Here's the <u>best unsolicited startup advice</u> you can get! */}
             </h2>
-
+            <br />
+            <hr />
+            <br />
             <h1>{props.quote}</h1>
-            <h2 class="pull-right">-{props.author}</h2>
-
-            <br class="clear" />
             <br />
-            <br />
+            <h2 className="float-right">-{props.author}</h2>
+            <br className="clear" />
             <br />
         </div>
     )
