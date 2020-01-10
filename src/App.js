@@ -3,12 +3,14 @@ import React from 'react';
 import './App.css';
 import Navigation from './components/Navigation';
 import RandomeQuote from './components/RandomQuote';
+import Footer from './components/Footer';
 
 function App() {
   return (
     <div className='App'>
         <Navigation />
         <RandomeQuote />
+        <Footer />
     </div>
   );
 }

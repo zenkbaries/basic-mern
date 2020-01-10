@@ -25,6 +25,19 @@ body {
   color: #09d3ac;
 }
 
-.card {
-    height: 300px;
+.clear {
+	clear:both;
+}
+
+.h-100 {
+    border: 1px dotted #cc2222;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    /* Set the fixed height of the footer here */
+    height: 100px;
+    text-align: right;
 }
