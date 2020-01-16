@@ -7,6 +7,8 @@ import Footer from './components/Footer';
 
 function App() {
   return (
+
+    // TODO: add routing for  home, add, and all
     <div className='App'>
         <Navigation />
         <RandomeQuote />
