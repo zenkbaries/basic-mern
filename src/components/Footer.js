@@ -1,5 +1,7 @@
 import React from 'react';
 
+// TODO: Need to make it accessible
+
 const Footer = () => {
     return (
         <div className="footer">
