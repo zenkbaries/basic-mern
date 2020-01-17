@@ -12,7 +12,6 @@ export default class RandomeQuote extends Component {
             quote_author: ''
         };
     }
-// TODO: Point to MongoDB Atlas
 
     componentDidMount() {
         axios.get('http://localhost:4000/random')
