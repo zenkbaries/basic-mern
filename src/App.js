@@ -3,17 +3,24 @@ import React from 'react';
 import './App.css';
 import Navigation from './components/Navigation';
 import RandomeQuote from './components/RandomQuote';
+import AddQuote from "./components/AddQuote";
 import Footer from './components/Footer';
+import { BrowserRouter as Router, Route } from "react-router-dom";
+
 
 function App() {
-  return (
 
-    // TODO: add routing for  home, add, and all
-    <div className='App'>
-        <Navigation />
-        <RandomeQuote />
-        <Footer />
-    </div>
+            // TODO: add routing for  home, add, and all
+
+  return (
+    <Router>
+        <div className='App'>
+            <Navigation />
+            <Route path="/" exact component={RandomeQuote} />
+            <Route path="/add" component={AddQuote} />
+            <Footer />
+        </div>
+    </Router>
   );
 }
 

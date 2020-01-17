@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+
 export default class AddQuote extends Component {
 
 
@@ -42,8 +43,8 @@ export default class AddQuote extends Component {
         };
 
 
-        axios.post('http://localhost:4000/quotes/add', newQuote)
-            .then(res => console.log(res.data));
+        axios.post('http://localhost:4000/add', newQuote)
+            .then(res => console.log('posted'));
 
 
         this.setState({
@@ -53,35 +54,45 @@ export default class AddQuote extends Component {
     }
 
 
-        // TODO: Update this render
+        // TODO: Update this render to make it modal
 
     render() {
         return (
-            <div style={{marginTop: 10}}>
+            <div className="container" style={{marginTop: 10}}>
                 <h3>Create New Quote</h3>
                 <form onSubmit={this.onSubmit}>
-                    <div className="form-group">
-                        <label>Description: </label>
-                        <input
+                    <div className="form-group row">
+                        <label className="col-sm-2 col-form-label">Quote: </label>
+                        {/* <input
                             type="text"
                             className="form-control"
                             value={this.state.quote_text}
                             onChange={this.onChangeQuote}
-                        />
+                        /> */}
+                        <div className="col-sm-10 col-form-label">
+                            <textarea
+                                className="form-control"
+                                rows="5"
+                                value={this.state.quote_text}
+                                onChange={this.onChangeQuote}
+                            />
+                        </div>
                     </div>
-                    <div className="form-group">
-                        <label>Responsible: </label>
-                        <input
-                            type="text"
-                            className="form-control"
-                            value={this.state.quote_author}
-                            onChange={this.onChangeAuthor}
-                        />
+                    <div className="form-group row">
+                        <label className="col-sm-2 col-form-label">Author: </label>
+                        <div className="col-sm-10">
+                            <input
+                                type="text"
+                                className="form-control"
+                                value={this.state.quote_author}
+                                onChange={this.onChangeAuthor}
+                            />
+                        </div>
                     </div>
                     <div className="form-group">
                         <input
                             type="submit"
-                            value="Create Todo"
+                            value="Create Quote"
                             className="btn btn-primary"
                         />
                     </div>
