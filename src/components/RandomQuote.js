@@ -3,6 +3,8 @@ import axios from 'axios';
 
 import QuoteBox from './QuoteBox';
 
+const API_URI_REMOTE = process.env.API_URI_REMOTE;
+
 export default class RandomeQuote extends Component {
 
     constructor(props) {
@@ -14,7 +16,7 @@ export default class RandomeQuote extends Component {
     }
 
     componentDidMount() {
-        axios.get('http://localhost:4000/random')
+        axios.get( API_URI_REMOTE + '/random')
             .then(response => {
                 console.log(response.data[0]);
                 console.log('componentDidMount completed');
