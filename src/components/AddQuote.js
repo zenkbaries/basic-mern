@@ -3,8 +3,6 @@ import axios from 'axios';
 
 export default class AddQuote extends Component {
 
-
-
     constructor(props) {
         super(props);
 
@@ -43,7 +41,7 @@ export default class AddQuote extends Component {
         };
 
 
-        axios.post('http://localhost:4000/add', newQuote)
+        axios.post(process.env.API_URI_REMOTE + '/random', newQuote)
             .then(res => console.log('posted'));
 
 
