@@ -42,8 +42,8 @@ export default class AddQuote extends Component {
             quote_author: this.state.quote_author
         };
 
-
-        axios.post('http://localhost:4000/add', newQuote)
+// TODOJ:refactor this to use process.env.API
+        axios.post('https://basic-mern-backend-jkt.herokuapp.com/add', newQuote)
             .then(res => console.log('posted'));
 
 
