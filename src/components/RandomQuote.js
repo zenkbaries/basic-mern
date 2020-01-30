@@ -3,7 +3,7 @@ import axios from 'axios';
 
 import QuoteBox from './QuoteBox';
 
-const API_URI_REMOTE = process.env.API_URI_REMOTE;
+const API = process.env.API_URI_REMOTE;
 
 export default class RandomeQuote extends Component {
 
@@ -16,8 +16,10 @@ export default class RandomeQuote extends Component {
     }
 
     componentDidMount() {
-        axios.get( API_URI_REMOTE + '/random')
-            .then(response => {
+        // axios.get( API + '/random')
+        axios.get('https://basic-mern-backend-jkt.herokuapp.com/random')
+        .then(response => {
+                console.log(API);
                 console.log(response.data[0]);
                 console.log('componentDidMount completed');
                 this.setState({
