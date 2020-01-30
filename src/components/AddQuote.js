@@ -40,7 +40,7 @@ export default class AddQuote extends Component {
             quote_author: this.state.quote_author
         };
 
-
+// TODO: refactor this to add API_REMOTE const
         axios.post(process.env.API_URI_REMOTE + '/random', newQuote)
             .then(res => console.log('posted'));
 
