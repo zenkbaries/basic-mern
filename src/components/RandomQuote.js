@@ -16,7 +16,7 @@ export default class RandomeQuote extends Component {
     }
 
     componentDidMount() {
-        axios.get( API + '/random')
+        axios.get( process.env.API_URI_REMOTE + '/random')
         .then(response => {
                 console.log(API);
                 console.log(response.data[0]);
