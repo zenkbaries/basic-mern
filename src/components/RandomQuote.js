@@ -3,7 +3,11 @@ import axios from 'axios';
 
 import QuoteBox from './QuoteBox';
 
-const API = process.env.API_URI_REMOTE;
+// if (process.env.NODE_ENV !== 'production') {
+//     require('dotenv').config();
+// }
+// require('dotenv').config();
+// const API = process.env.API_URI_REMOTE;
 
 export default class RandomeQuote extends Component {
 
@@ -17,9 +21,9 @@ export default class RandomeQuote extends Component {
 
     // TODO: refactor URI to use process.env.API
     componentDidMount() {
-        axios.get( 'https://basic-mern-backend-jkt.herokuapp.com/random')
+        axios.get( process.env.REACT_APP_API_URI_REMOTE + '/random')
         .then(response => {
-                console.log(API);
+                // console.log(API);
                 console.log(response.data[0]);
                 console.log('componentDidMount completed');
                 this.setState({
