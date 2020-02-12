@@ -1,8 +1,13 @@
 import React from 'react';
+import { useAuth0 } from "../react-auth0-spa";
+import { Link } from "react-router-dom";
+
 
 // TODO: Check accessibililty here
 
 const Navigation = () => {
+
+    const { isAuthenticated, loginWithRedirect, logout } = useAuth0();
 
     return (
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -39,11 +44,32 @@ const Navigation = () => {
                     <button className="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
 
                 </form> */}
+
+
             </div>
+            <div>
+                    {!isAuthenticated && (
+                        <button onClick={() => loginWithRedirect({})}>Log in</button>
+                    )}
+
+                    {isAuthenticated && (
+                        <button onClick={() => logout()}>Log out</button>
+                    )}
+
+                    {isAuthenticated &&
+                    // <button onClick={() => logout()}>Log out</button>}
+                    (
+                        <span>
+                            <Link to="/">Home</Link>&nbsp;
+                            <Link to="/profile">Profile</Link>
+                        </span>
+                    )
+                    }
+                </div>
         </nav>
 
-    )
+    );
 
-}
+};
 
 export default Navigation;
