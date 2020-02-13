@@ -48,23 +48,26 @@ const Navigation = () => {
 
             </div>
             <div>
-                    {!isAuthenticated && (
-                        <button onClick={() => loginWithRedirect({})}>Log in</button>
-                    )}
-
+                <ul className="navbar-nav ml-auto">
+                    <li className="nav-item">
                     {isAuthenticated && (
-                        <button onClick={() => logout()}>Log out</button>
-                    )}
-
-                    {isAuthenticated &&
-                    // <button onClick={() => logout()}>Log out</button>}
-                    (
                         <span>
-                            <Link to="/">Home</Link>&nbsp;
-                            <Link to="/profile">Profile</Link>
+                            <Link className="nav-link" to="/profile">Profile</Link>
                         </span>
-                    )
-                    }
+                    )}
+                    </li>
+                    <li className="nav-item">
+                    {!isAuthenticated && (
+                        <button className="btn btn-light my-2 my-sm-0" onClick={() => loginWithRedirect({})}>Log in</button>
+                    )}
+                    </li>
+                    <li className="nav-item">
+                    {isAuthenticated && (
+                        <button className="btn btn-light my-2 my-sm-0" onClick={() => logout()}>Log out</button>
+                    )}
+                    </li>
+                </ul>
+
                 </div>
         </nav>
 
