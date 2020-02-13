@@ -10,6 +10,7 @@ import { useAuth0 } from './react-auth0-spa';
 
 import Profile from './components/Profile';
 import history from './utils/history';
+import PrivateRoute from "./components/PrivateRoute";
 
 
 function App() {
@@ -32,7 +33,7 @@ function App() {
             <Switch>
                 <Route path="/" exact component={RandomeQuote} />
                 <Route path="/add" component={AddQuote} />
-                <Route path="/profile" component={Profile} />
+                <PrivateRoute path="/profile" component={Profile} />
             </Switch>
             <Footer />
         </div>
