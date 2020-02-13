@@ -32,7 +32,7 @@ function App() {
             </header>
             <Switch>
                 <Route path="/" exact component={RandomeQuote} />
-                <Route path="/add" component={AddQuote} />
+                <PrivateRoute path="/add" component={AddQuote} />
                 <PrivateRoute path="/profile" component={Profile} />
             </Switch>
             <Footer />
