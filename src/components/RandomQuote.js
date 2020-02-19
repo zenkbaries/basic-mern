@@ -5,7 +5,7 @@ import QuoteBox from './QuoteBox';
 
 const API = process.env.REACT_APP_API_URI_REMOTE;
 
-export default class RandomeQuote extends Component {
+export default class RandomQuote extends Component {
 
     constructor(props) {
         super(props);
