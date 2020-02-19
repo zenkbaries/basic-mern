@@ -48,8 +48,13 @@ export default class AddQuote extends Component {
             quote_public: this.state.quote_public
         };
 
+<<<<<<< HEAD
 // TODO: refactor this to add API_REMOTE const
         axios.post(process.env.API_URI_REMOTE + '/random', newQuote)
+=======
+// TODOJ:refactor this to use process.env.API
+        axios.post('https://basic-mern-backend-jkt.herokuapp.com/add', newQuote)
+>>>>>>> 7eecd6eb72620491aff8e7a6eb24fb9f21cf7e22
             .then(res => console.log('posted'));
 
 
