@@ -1,6 +1,6 @@
 import React from 'react';
 import { useAuth0 } from "../react-auth0-spa";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 
 
 // TODO: Check accessibililty here
@@ -48,4 +48,4 @@ const Navigation = () => {
 
 };
 
-export default Navigation;
+export default withRouter(Navigation);
