@@ -15,7 +15,9 @@ import PrivateRoute from "./components/PrivateRoute";
 
 function App() {
 
-    const { loading } = useAuth0();
+        // TODO: Need to move useAuth0 to here as top left and pass it on as props
+
+    const { loading, user } = useAuth0();
     console.log(useAuth0());
 
     if (loading) {
@@ -31,9 +33,19 @@ function App() {
                 <Navigation />
             </header>
             <Switch>
-                <Route path="/" exact component={RandomQuote} />
-                <PrivateRoute path="/add" component={AddQuote} />
-                <PrivateRoute path="/profile" component={Profile} />
+                <Route
+                    path="/"
+                    exact
+                    component={RandomQuote}
+                />
+                <PrivateRoute
+                    path="/add"
+                    render={(props)=> <AddQuote {...props} user={user} />}
+                />
+                <PrivateRoute
+                    path="/profile"
+                    component={Profile}
+                />
             </Switch>
             <Footer />
         </div>
