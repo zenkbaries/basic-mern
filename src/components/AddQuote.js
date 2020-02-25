@@ -1,18 +1,20 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import { useAuth0 } from "../react-auth0-spa";
+// import { useAuth0 } from "../react-auth0-spa";
 
 
 export default class AddQuote extends Component {
 
     constructor(props) {
         super(props);
-        const { user } = useAuth0();
+
+        // TODO: Need to move useAuth to app.js and receive it as props
+        // const { user } = props.auth0;
 
         this.state = {
             quote_text: '',
             quote_author: '',
-            quote_entered_by: this.user.name,
+            quote_entered_by: this.props.user.nickname,
             quote_public: ''
         }
 
@@ -21,6 +23,8 @@ export default class AddQuote extends Component {
         this.onSubmit = this.onSubmit.bind(this);
 
     }
+
+
 
     onChangeQuote(e) {
         this.setState({
@@ -40,6 +44,7 @@ export default class AddQuote extends Component {
         console.log(`Form submitted:`);
         console.log(`Quote Text: ${this.state.quote_text}`);
         console.log(`Quote Author: ${this.state.quote_author}`);
+        console.log(`User: ${this.state.quote_entered_by}`)
 
         const newQuote = {
             quote_text: this.state.quote_text,
@@ -49,7 +54,7 @@ export default class AddQuote extends Component {
         };
 
 // TODO: refactor this to add API_REMOTE const
-        axios.post(process.env.API_URI_REMOTE + '/random', newQuote)
+        axios.post(process.env.REACT_APP_API_URI_LOCAL + '/add', newQuote)
             .then(res => console.log('posted'));
 
 
@@ -63,22 +68,17 @@ export default class AddQuote extends Component {
         // TODO: Update this render to make it modal
 
     render() {
+        console.log(this.props);
         return (
             <div className="container" style={{marginTop: 10}}>
                 <h3>Add New Quote</h3>
                 <form onSubmit={this.onSubmit}>
                     <div className="form-group row">
                         <label className="col-sm-2 col-form-label">Quote: </label>
-                        {/* <input
-                            type="text"
-                            className="form-control"
-                            value={this.state.quote_text}
-                            onChange={this.onChangeQuote}
-                        /> */}
-                        <div className="col-sm-10 col-form-label">
-                            <textarea
+                        <div className="col-sm-10">
+                            <input
+                                type="text"
                                 className="form-control"
-                                rows="5"
                                 value={this.state.quote_text}
                                 onChange={this.onChangeQuote}
                             />
