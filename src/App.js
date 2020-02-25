@@ -5,7 +5,9 @@ import Navigation from './components/Navigation';
 import RandomQuote from './components/RandomQuote';
 import AddQuote from './components/AddQuote';
 import Footer from './components/Footer';
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+// import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { Router, Route, Switch } from "react-router-dom";
+
 import { useAuth0 } from './react-auth0-spa';
 
 import Profile from './components/Profile';
@@ -18,7 +20,7 @@ function App() {
         // TODO: Need to move useAuth0 to here as top left and pass it on as props
 
     const { loading, user } = useAuth0();
-    console.log(useAuth0());
+    // console.log(useAuth0());
 
     if (loading) {
       return <div>Loading App...</div>;
