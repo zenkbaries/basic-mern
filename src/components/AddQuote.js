@@ -3,8 +3,6 @@ import axios from 'axios';
 
 export default class AddQuote extends Component {
 
-
-
     constructor(props) {
         super(props);
 
@@ -42,8 +40,8 @@ export default class AddQuote extends Component {
             quote_author: this.state.quote_author
         };
 
-// TODOJ:refactor this to use process.env.API
-        axios.post('https://basic-mern-backend-jkt.herokuapp.com/add', newQuote)
+// TODO: refactor this to add API_REMOTE const
+        axios.post(process.env.API_URI_REMOTE + '/random', newQuote)
             .then(res => console.log('posted'));
 
 
